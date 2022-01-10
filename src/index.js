@@ -1,19 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// );
 
-function Click() {
-  fetch('https://jsonplaceholder.typicode.com/posts/1')
+const btn = document.querySelector('.btn')
+const root = document.querySelector('#root')
+
+function Click(massive) {
+  
+  fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((post) => {
       const root = document.querySelector('#root')
-
+      
+      massive = post
+        console.log(massive)
       ReactDOM.render(
-        <div>
+        <div class='box'>
           <div>Id: {post.id}</div>
           <div>Title: {post.title}</div>
           <div>Body: {post.body}</div>
@@ -23,7 +25,7 @@ function Click() {
     });
 }
 
-const btn = document.querySelector('.btn')
 btn.addEventListener('click', () => {
-  Click()
+  let massive = null
+  Click(massive)
 })
