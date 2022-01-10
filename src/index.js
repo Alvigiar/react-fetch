@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// ReactDOM.render(
-//   <App />,
-//   document.getElementById('root')
-// );
 
 function Click() {
-  fetch('https://jsonplaceholder.typicode.com/posts/1')
+  fetch('https://jsonplaceholder.typicode.com/posts')
     .then((response) => response.json())
     .then((post) => {
       const root = document.querySelector('#root')
-
+      console.log(post);
       ReactDOM.render(
         <div>
           <div>Id: {post.id}</div>
